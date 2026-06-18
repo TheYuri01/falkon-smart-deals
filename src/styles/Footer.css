@@ -1,0 +1,90 @@
+/* --- BARRA DE REGISTRO (PRÉ-FOOTER) --- */
+.register-banner {
+    background-color: #eef2f5;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    border-top: 3px solid transparent;
+    background-image: linear-gradient(var(--white), var(--white)), linear-gradient(to right, #e74c3c 20%, #e67e22 20% 40%, #f1c40f 40% 60%, #1abc9c 60% 80%, #34495e 80%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.register-banner a {
+    color: #111;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--bg-dark);
+    color: #a0a0a0;
+    padding: 40px 5% 20px 5%;
+    font-size: 14px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1600px;
+    margin: 0 auto;
+    border-bottom: 1px solid #2c3e50;
+    padding-bottom: 30px;
+}
+
+.footer-logo {
+    color: var(--white);
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.footer-col h4 {
+    color: var(--white);
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+    color: var(--white);
+}
+
+.social-icons i {
+    margin-right: 10px;
+}
+
+.footer-bottom {
+    max-width: 1600px;
+    margin: 20px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+}
+
+.footer-links a {
+    color: #a0a0a0;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+/* Responsividade do Grid do rodapé */
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}

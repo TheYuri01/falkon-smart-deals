@@ -1,0 +1,43 @@
+/* --- VARIÁVEIS DE CORES E CONFIGURAÇÕES GERAIS --- */
+:root {
+    --bg-dark: #11161a;
+    --bg-body: #f5f7f9;
+    --white: #ffffff;
+    --text-dark: #2c3e50;
+    --text-muted: #7f8c8d;
+    --primary-red: #e74c3c;
+    --btn-orange: #e67e22;
+    --btn-yellow: #f1c40f;
+    --btn-teal: #1abc9c;
+    --btn-geek: #34495e;
+    --border-color: #eaeded;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-dark);
+}
+
+/* --- CORPO PRINCIPAL (LAYOUT GRID) --- */
+.main-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+    padding: 30px 5%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* --- RESPONSIVIDADE (MEDIA QUERIES GLOBAIS) --- */
+@media (max-width: 900px) {
+    .main-container { 
+        grid-template-columns: 1fr; 
+    }
+}
