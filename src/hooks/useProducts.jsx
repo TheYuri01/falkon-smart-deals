@@ -3,13 +3,7 @@ import { useState, useEffect } from 'react';
 // File: src/hooks/useProducts.jsx
 const API_URL = import.meta.env.DEV
   ? 'http://localhost:3001/produtos'
-  : getStaticDataUrl();
-
-function getStaticDataUrl() {
-  const segments = window.location.pathname.split('/').filter(Boolean);
-  const basePath = segments.length > 0 ? `/${segments[0]}` : '';
-  return `${basePath}/db.json`;
-}
+  : 'db.json';
 
 export default function useProducts(textoPesquisa = '') {
   const [products, setProducts] = useState([]);

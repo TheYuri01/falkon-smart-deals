@@ -1,5 +1,5 @@
 // File: src/App.jsx
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { useState } from 'react';
 import useTheme from './hooks/useTheme.jsx';
 import './styles/App.css';
@@ -12,7 +12,7 @@ export default function App() {
   const [textoPesquisa, setTextoPesquisa] = useState('');
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className={tema === 'dark' ? 'app dark-theme' : 'app'}>
         <Header
           tema={tema}
@@ -23,6 +23,6 @@ export default function App() {
         <AppRoutes textoPesquisa={textoPesquisa} />
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
