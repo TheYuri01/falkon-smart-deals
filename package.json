@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --base ./",
-    "server": "json-server --watch public/data/db.json --port 3001",
+    "server": "json-server --watch public/db.json --port 3001",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint .",
