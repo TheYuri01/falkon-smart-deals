@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 
-// 1. A MUDANÇA PRINCIPAL: 
-// Trocamos o localhost pelo nome do arquivo que vai ficar na pasta public
-const API_URL = 'produtos.json'; 
+// Fonte de dados:
+// - Em desenvolvimento (com json-server rodando): usar a rota do json-server
+// - Em produção (build estático): usar o arquivo estático dentro de /public/data/db.json
+const API_URL = import.meta.env.DEV
+  ? 'http://localhost:3001/produtos'
+  : '/data/db.json';
 
 export default function useProducts(textoPesquisa = '') {
   const [products, setProducts] = useState([]);
