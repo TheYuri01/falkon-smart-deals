@@ -1,12 +1,8 @@
 import { useState } from 'react';
 
-/**
- * Custom Hook responsável só pelo tema (claro/escuro).
- * Fica separado do useProducts porque não tem nenhuma relação
- * com regra de negócio de produtos — é puramente de interface.
- */
+// File: src/hooks/useTheme.jsx
 export default function useTheme() {
-  const [tema, setTema] = useState('light'); // 'light' ou 'dark'
+  const [tema, setTema] = useState('light');
 
   function alternarTema() {
     setTema((temaAtual) => (temaAtual === 'light' ? 'dark' : 'light'));

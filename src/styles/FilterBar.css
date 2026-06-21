@@ -1,3 +1,4 @@
+/* File: src/styles/FilterBar.css */
 .sidebar {
   background-color: var(--white);
   padding: 20px;
@@ -49,7 +50,6 @@
   transition: color 0.3s ease;
 }
 
-/* Slider de preço */
 .price-slider-container {
   margin-top: 10px;
 }

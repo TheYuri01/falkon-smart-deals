@@ -1,5 +1,4 @@
-/* Espaçamento lateral igual ao resto da página (mesmo padding de 5%
-   usado no .main-container), com o mesmo teto de largura máxima. */
+/* File: src/styles/BannerCarousel.css */
 .banner-carousel {
   position: relative;
   width: 100%;
@@ -41,9 +40,6 @@
   background-color: #ffffff;
 }
 
-/* Anula o efeito global de scale(0.96) ao clicar (definido em
-   App.css para todo botão/link), que combinado com o
-   translateY(-50%) de centralização dava a sensação de "salto". */
 .carousel-arrow:active {
   transform: translateY(-50%) !important;
   opacity: 1 !important;

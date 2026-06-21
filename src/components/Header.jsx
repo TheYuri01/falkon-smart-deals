@@ -1,10 +1,8 @@
+// File: src/components/Header.jsx
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../styles/Header.css';
 
-// Recebe tema, alternarTema, textoPesquisa e setTextoPesquisa via props
-// (todos esses estados vivem no App.jsx, que é o único componente que
-// enxerga tanto o Header quanto as páginas que precisam desses dados).
 export default function Header({ tema, alternarTema, textoPesquisa, setTextoPesquisa }) {
   return (
     <header>

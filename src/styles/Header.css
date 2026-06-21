@@ -104,8 +104,6 @@ nav {
 .btn-hw { background-color: var(--btn-teal); }
 .btn-geek { background-color: var(--btn-geek); }
 
-/* Supondo que seus botões do header tenham uma classe como .nav-btn ou similar.
-   Adapte o nome da classe para a que você usa no seu menu. */
 
 @media (max-width: 1200px) {
   header {

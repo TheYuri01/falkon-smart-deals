@@ -1,10 +1,8 @@
+// File: src/components/ProductCard.jsx
 import React from 'react';
 import productImages from '../utils/productImages.jsx';
 import '../styles/ProductCard.css';
 
-// O db.json não tem campo de desconto percentual.
-// Geramos um desconto fictício fixo por produto (baseado no id),
-// só para fins visuais, como o documento do desafio pede.
 const DESCONTOS = [10, 15, 20, 25, 30];
 function getDescontoFicticio(id) {
   return DESCONTOS[Number(id) % DESCONTOS.length];

@@ -1,11 +1,10 @@
+// File: src/pages/Home.jsx
 import React from 'react';
 import FilterBar from '../components/FilterBar.jsx';
 import ProductGrid from '../components/ProductGrid.jsx';
 import BannerCarousel from '../components/BannerCarousel.jsx';
 import useProducts from '../hooks/useProducts.jsx';
 
-// Recebe textoPesquisa de fora (originado no input do Header,
-// passado através do App.jsx -> AppRoutes.jsx -> aqui).
 export default function Home({ textoPesquisa }) {
   const {
     products,

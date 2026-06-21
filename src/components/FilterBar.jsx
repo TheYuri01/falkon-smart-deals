@@ -1,7 +1,7 @@
+// File: src/components/FilterBar.jsx
 import React from 'react';
 import '../styles/FilterBar.css';
 
-// Categorias reais existentes no db.json
 const CATEGORIAS = [
   { valor: 'Todos', label: 'Todos' },
   { valor: 'perifericos', label: 'Periféricos' },

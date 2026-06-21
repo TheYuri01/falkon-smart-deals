@@ -1,4 +1,4 @@
-// src/utils/productImages.js
+// File: src/utils/productImages.jsx
 import teclado from '../assets/produtos/teclado-rgb.png';
 import mouse from '../assets/produtos/mouse-gamer.png';
 import monitor from '../assets/produtos/monitor-144hz.png';
@@ -8,7 +8,6 @@ import batman from '../assets/produtos/batman-figure.png';
 import headset from '../assets/produtos/headset-71.png';
 import comic from '../assets/produtos/cavaleiro-trevas.png';
 
-// As chaves são os "id" do seu db.json (1 a 8)
 const productImages = {
   1: teclado,
   2: mouse,

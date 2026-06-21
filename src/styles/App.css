@@ -1,6 +1,4 @@
-/* ==========================================================================
-   VARIÁVEIS DE TEMA
-   ========================================================================== */
+/* File: src/styles/App.css */
 :root {
   --bg-dark: #11161a;
   --bg-body: #f5f7f9;
@@ -33,9 +31,6 @@
   --link-banner: #58a6ff;
 }
 
-/* ==========================================================================
-   RESET E BASE
-   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -64,9 +59,6 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* A div raiz da aplicação (App.jsx) é quem realmente recebe a classe
-   .dark-theme. Ela precisa ocupar pelo menos a altura da tela e ter
-   seu próprio fundo, senão sobra uma faixa clara do <body> ao redor. */
 .app {
   min-height: 100vh;
   background-color: var(--bg-body);
@@ -77,9 +69,6 @@ body {
   cursor: pointer;
 }
 
-/* ==========================================================================
-   LAYOUT PRINCIPAL
-   ========================================================================== */
 .main-container {
   width: 100%;
   box-sizing: border-box;
@@ -91,71 +80,44 @@ body {
   margin: 0 auto;
 }
 
-/* ==========================================================================
-   RESPONSIVIDADE GERAL (Header, Layout, Grid, Cards e Footer)
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   Telas Médias e Notebooks (Até 1200px)
-   -------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
-
-  /* LAYOUT */
   .main-container {
     grid-template-columns: 220px 1fr;
-    /* Diminui a largura da sidebar de filtros */
     padding: 0 2.5%;
-    /* Dá mais espaço de tela reduzindo as margens laterais */
   }
 
-  /* HEADER */
-  /* Ajusta o Header para não espremer a barra de pesquisa */
   header {
     padding: 15px 3%;
   }
 }
 
-/* --------------------------------------------------------------------------
-   Tablets e Telas Menores (Até 960px)
-   -------------------------------------------------------------------------- */
 @media (max-width: 960px) {
-
-  /* LAYOUT (A grande quebra: Sidebar vai pro topo) */
   .main-container {
     grid-template-columns: 1fr;
-    /* Fica uma coluna só, empilhando conteúdo */
     gap: 20px;
     padding: 0 20px;
   }
 
-  /* SIDEBAR DE FILTROS */
   .sidebar {
     position: relative;
-    /* Desliga o sticky para não acompanhar o scroll e cobrir a tela */
     top: 0;
     max-height: none;
-    /* Deixa o filtro crescer livremente */
     margin-top: 0;
     width: 100%;
     box-sizing: border-box;
     overflow-y: visible;
   }
 
-  /* FOOTER */
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
-    /* Divide o footer em 2 colunas para organizar */
     gap: 30px;
   }
 }
 
 @media (max-width: 600px) {
-
-  /* HEADER */
   header {
     display: flex;
     flex-direction: column;
-    /* Empilha Logo, Pesquisa e Menu */
     gap: 15px;
     padding: 15px;
     width: 100%;
@@ -163,41 +125,27 @@ body {
 
   .search-bar {
     width: 100%;
-    /* Barra de pesquisa ocupa a tela toda no celular */
     order: 3;
-    /* Joga a barra para baixo do logo e dos botões */
   }
 
-  /* LAYOUT GERAL */
   .main-container {
     padding: 0 15px;
-    /* Margem mínima para aproveitar a tela pequena */
   }
 
-  /* PRODUCT GRID */
   .products-grid {
-    /* Força os produtos a ficarem 1 em cima do outro, quebrando o limite de 260px */
     grid-template-columns: 1fr;
-
-    /* Anula o padding de 30px que estava estourando a tela e reduz para 10px */
     padding: 20px 10px 0 10px;
-
     width: 100%;
     box-sizing: border-box;
-    /* Impede que margens e paddings somem na largura total */
   }
 
-  /* PRODUCT CARD */
   .product-card {
     width: 100%;
     max-width: 100%;
-    /* Garante que o card nunca ultrapasse a largura da tela */
     margin: 0 auto;
-    /* Centraliza caso sobre espaço */
     padding: 15px;
     min-height: auto;
     box-sizing: border-box;
-    /* Impede que o padding some com a largura e quebre a tela */
   }
 
   .product-card img {
@@ -207,10 +155,8 @@ body {
 
   .product-title {
     font-size: 13px;
-    /* Diminui a fonte do título para não quebrar muitas linhas */
   }
 
-  /* FOOTER E BANNER */
   .register-banner {
     padding: 10px;
     font-size: 12px;
@@ -218,27 +164,20 @@ body {
 
   .footer-grid {
     grid-template-columns: 1fr;
-    /* Footer fica com 1 coluna só (uma coisa embaixo da outra) */
     text-align: center;
-    /* Centraliza o texto para ficar bonito no celular */
   }
 
   .footer-bottom {
     flex-direction: column;
-    /* Empilha a linha de direitos autorais e links */
     gap: 15px;
   }
 
   .footer-links a {
     display: inline-block;
     margin: 5px 10px;
-    /* Dá espaço para os dedos conseguirem tocar no link certo */
   }
 }
 
-/* ==========================================================================
-   TRANSIÇÃO DE PÁGINA (fade + leve deslize ao trocar de rota)
-   ========================================================================== */
 @keyframes pagFadeUp {
   from {
     opacity: 0;
@@ -251,20 +190,11 @@ body {
   }
 }
 
-/* Aplicada numa única div que envolve cada rota (ver AppRoutes.jsx),
-   garantindo que toda a página anime como um bloco só ao trocar de
-   rota. O min-height garante que a área de conteúdo nunca fique
-   menor que esse valor, então o Footer tem uma posição estável,
-   mesmo quando uma página (Promoções) tem menos itens que a outra
-   (Home) — sem precisar esticar artificialmente o conteúdo interno. */
 .page-transition {
   min-height: 75vh;
   animation: pagFadeUp 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
-/* ==========================================================================
-   MICRO-INTERAÇÕES (links e botões)
-   ========================================================================== */
 a,
 button {
   transition: all 0.2s ease-in-out;
@@ -275,9 +205,3 @@ button:active {
   transform: scale(0.96);
   opacity: 0.8;
 }
-
-/* Links do footer que apontam para uma âncora (ex: href="#topo")
-   já respeitam o "scroll-behavior: smooth" definido no html acima.
-   Links com href="#" sozinho (sem destino) não rolam — troque por
-   um id real (ex: href="#topo" + <header id="topo">) quando o
-   destino existir de fato. */

@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 
-// Fonte de dados:
-// - Em desenvolvimento (com json-server rodando): usar a rota do json-server
-// - Em produção (build estático): usar o arquivo estático dentro de /public/data/db.json
+// File: src/hooks/useProducts.jsx
 const API_URL = import.meta.env.DEV
   ? 'http://localhost:3001/produtos'
   : '/data/db.json';
@@ -14,7 +12,7 @@ export default function useProducts(textoPesquisa = '') {
 
   const [precoMax, setPrecoMax] = useState(1500);
   const [categoria, setCategoria] = useState('Todos');
-  const [ordenacao, setOrdenacao] = useState('maior'); // 'maior' ou 'menor'
+  const [ordenacao, setOrdenacao] = useState('maior');
 
   useEffect(() => {
     fetch(API_URL)
@@ -23,12 +21,8 @@ export default function useProducts(textoPesquisa = '') {
         return res.json();
       })
       .then((data) => {
-        // 2. A SEGUNDA MUDANÇA (Prevenção de erro):
-        // Como o json-server normalmente guarda os dados dentro de um bloco { "produtos": [...] },
-        // essa linha garante que o React vai achar a lista de produtos, quer você tenha 
-        // enviado o arquivo original do json-server ou apenas uma lista pura.
         const arrayDeProdutos = Array.isArray(data) ? data : data.produtos || [];
-        
+
         setProducts(arrayDeProdutos);
         setLoading(false);
       })
@@ -38,7 +32,6 @@ export default function useProducts(textoPesquisa = '') {
       });
   }, []);
 
-  // Filtros cruzados: preço, busca por texto e categoria (usado na Home)
   let produtosFiltrados = products.filter((produto) => {
     const matchesPreco = produto.preco <= precoMax;
     const matchesPesquisa = produto.nome
@@ -50,13 +43,10 @@ export default function useProducts(textoPesquisa = '') {
     return matchesPreco && matchesPesquisa && matchesCategoria;
   });
 
-  // Ordenação por preço
   produtosFiltrados = [...produtosFiltrados].sort((a, b) =>
     ordenacao === 'maior' ? b.preco - a.preco : a.preco - b.preco
   );
 
-  // Lista exclusiva de itens em promoção (usada na página /promocoes),
-  // respeitando também o texto digitado na busca do header.
   const promoProducts = products.filter(
     (produto) =>
       produto.promocao === true &&
