@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
 
-// Endereço do json-server (confirme que bate com a porta do seu "npm run server")
-const API_URL = 'http://localhost:3001/produtos';
+// 1. A MUDANÇA PRINCIPAL: 
+// Trocamos o localhost pelo nome do arquivo que vai ficar na pasta public
+const API_URL = 'produtos.json'; 
 
-// "textoPesquisa" vem de fora (do App.jsx, via Header). Isso permite
-// que o mesmo input de busca filtre tanto a Home quanto Promoções,
-// já que ambas chamam esse hook passando o mesmo valor.
 export default function useProducts(textoPesquisa = '') {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +20,13 @@ export default function useProducts(textoPesquisa = '') {
         return res.json();
       })
       .then((data) => {
-        setProducts(data);
+        // 2. A SEGUNDA MUDANÇA (Prevenção de erro):
+        // Como o json-server normalmente guarda os dados dentro de um bloco { "produtos": [...] },
+        // essa linha garante que o React vai achar a lista de produtos, quer você tenha 
+        // enviado o arquivo original do json-server ou apenas uma lista pura.
+        const arrayDeProdutos = Array.isArray(data) ? data : data.produtos || [];
+        
+        setProducts(arrayDeProdutos);
         setLoading(false);
       })
       .catch((err) => {
