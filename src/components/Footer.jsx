@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <>
       <div className="register-banner">
-        Cadastre-se na Falkon para conferir mais promoções! <a href="#">Entrar | Cadastrar-se</a>
+        Cadastre-se na Falkon para conferir mais promoções! <a href="#">Entrar</a> | <a href='#'>Cadastrar-se</a>
       </div>
 
       <footer>
@@ -53,7 +53,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <div>© 2026 Falkon Inc. All rights reserved.</div>
+          <div>© 2026 Falkon Inc. Todos os direitos reservados.</div>
           <div className="footer-links">
             <a href="#">Português (Brasil)</a>
             <a href="#">Privacidade</a>

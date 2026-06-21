@@ -1,0 +1,88 @@
+/* Espaçamento lateral igual ao resto da página (mesmo padding de 5%
+   usado no .main-container), com o mesmo teto de largura máxima. */
+.banner-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1125px;
+  margin: 20px auto;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  display: block;
+  height: 220px;
+  object-fit: contain;
+  background-color: var(--bg-dark);
+}
+
+/* Setas de navegação */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark, #2c3e50);
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+  z-index: 2;
+}
+
+.carousel-arrow:hover {
+  background-color: #ffffff;
+}
+
+/* Anula o efeito global de scale(0.96) ao clicar (definido em
+   App.css para todo botão/link), que combinado com o
+   translateY(-50%) de centralização dava a sensação de "salto". */
+.carousel-arrow:active {
+  transform: translateY(-50%) !important;
+  opacity: 1 !important;
+}
+
+.carousel-arrow-left {
+  left: 16px;
+}
+
+.carousel-arrow-right {
+  right: 16px;
+}
+
+/* Indicadores (bolinhas) */
+.carousel-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dot-active {
+  background-color: #ffffff;
+}
+
+@media (max-width: 700px) {
+  .banner-image {
+    height: 150px;
+  }
+}

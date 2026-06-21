@@ -1,0 +1,18 @@
+.promo-title {
+    grid-column: 1 / -1;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+.status-msg {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 60px 0;
+    font-size: 14px;
+}
+
+.status-msg.error {
+    color: var(--primary-red);
+}

@@ -1,30 +1,68 @@
 import React from 'react';
-import '../styles/ProductCard.css'
+import productImages from '../utils/productImages.jsx';
+import '../styles/ProductCard.css';
+
+// O db.json não tem campo de desconto percentual.
+// Geramos um desconto fictício fixo por produto (baseado no id),
+// só para fins visuais, como o documento do desafio pede.
+const DESCONTOS = [10, 15, 20, 25, 30];
+function getDescontoFicticio(id) {
+  return DESCONTOS[Number(id) % DESCONTOS.length];
+}
 
 export default function ProductCard({ product }) {
+  const desconto = getDescontoFicticio(product.id);
+  const estoqueZerado = product.estoque === 0;
+  const estoqueBaixo = product.estoque > 0 && product.estoque <= 3;
+  const imagem = productImages[product.id];
+
   return (
     <div className="product-card">
-      {product.discount && <div className="discount-badge">{product.discount}</div>}
-      <img src={product.image} alt={product.title} className="product-image" />
+      <div className="discount-badge">{desconto}% OFF ▼</div>
+
+      <img src={imagem} alt={product.nome} className="product-image" />
+
       <div>
         <div className="tag-container">
-          {product.freeShipping && <span className="tag tag-shipping">Frete Grátis</span>}
-          {product.statusTag && <span className="tag tag-status">{product.statusTag}</span>}
+          {product.promocao && <span className="tag tag-shipping">Promoção</span>}
+          {estoqueZerado && <span className="tag tag-status">Esgotado</span>}
+          {estoqueBaixo && <span className="tag tag-status">Estoque Baixo</span>}
         </div>
-        <h3 className="product-title">{product.title}</h3>
+
+        <h3 className="product-title" title={product.nome}>
+          {product.nome}
+        </h3>
+
         <div className="rating">
-          {/* Renderiza 5 estrelas baseadas na nota (simplificado) */}
           {[...Array(5)].map((_, i) => (
-            <i key={i} className={i < product.stars ? "fa-solid fa-star" : "fa-regular fa-star"}></i>
+            <i
+              key={i}
+              className={
+                i < Math.round(product.nota) ? 'fa-solid fa-star' : 'fa-regular fa-star'
+              }
+            ></i>
           ))}
-          <span className="rating-count">({product.ratingCount})</span>
+          <span className="rating-count">({product.nota})</span>
         </div>
       </div>
+
       <div>
         <div className="product-price">
-          R$ {product.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} <span className="price-cash">à vista</span>
+          R${' '}
+          {product.preco.toLocaleString('pt-BR', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}{' '}
+          <span className="price-cash">à vista</span>
         </div>
-        <div className="installment">{product.installment}</div>
+        <div className="installment">
+          12x de R${' '}
+          {(product.preco / 12).toLocaleString('pt-BR', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}{' '}
+          sem juros
+        </div>
       </div>
     </div>
   );

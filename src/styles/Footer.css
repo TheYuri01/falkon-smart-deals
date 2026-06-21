@@ -1,90 +1,130 @@
-/* --- BARRA DE REGISTRO (PRÉ-FOOTER) --- */
+/* Faixa de cadastro, acima do rodapé */
 .register-banner {
-    background-color: #eef2f5;
-    text-align: center;
-    padding: 15px;
-    font-size: 14px;
-    border-top: 3px solid transparent;
-    background-image: linear-gradient(var(--white), var(--white)), linear-gradient(to right, #e74c3c 20%, #e67e22 20% 40%, #f1c40f 40% 60%, #1abc9c 60% 80%, #34495e 80%);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
+  background-color: var(--bg-banner);
+  color: var(--text-banner);
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  border-top: 3px solid transparent;
+  background-image:
+    linear-gradient(var(--white), var(--white)),
+    linear-gradient(to right, #e74c3c 20%, #e67e22 20% 40%, #f1c40f 40% 60%, #1abc9c 60% 80%, #34495e 80%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .register-banner a {
-    color: #111;
-    font-weight: bold;
-    text-decoration: none;
+  color: var(--link-banner);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* --- FOOTER --- */
+.register-banner a:hover {
+  text-decoration: underline;
+}
+
+/* Rodapé */
 footer {
-    background-color: var(--bg-dark);
-    color: #a0a0a0;
-    padding: 40px 5% 20px 5%;
-    font-size: 14px;
+  background-color: var(--bg-dark);
+  color: #a0a0a0;
+  padding: 40px 5% 20px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr repeat(4, 1fr);
-    gap: 40px;
-    max-width: 1600px;
-    margin: 0 auto;
-    border-bottom: 1px solid #2c3e50;
-    padding-bottom: 30px;
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1600px;
+  margin: 0 auto;
+  border-bottom: 1px solid #2c3e50;
+  padding-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 30px 15px 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding-bottom: 24px;
+  }
+
+  .footer-logo {
+    font-size: 28px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .footer-links a {
+    margin-left: 0;
+  }
 }
 
 .footer-logo {
-    color: var(--white);
-    font-size: 32px;
-    font-weight: 900;
+  color: var(--text-header);
+  font-size: 32px;
+  font-weight: 900;
+  transition: color 0.3s ease;
 }
 
 .footer-col h4 {
-    color: var(--white);
-    margin-bottom: 15px;
-    font-size: 15px;
+  color: var(--text-header);
+  margin-bottom: 15px;
+  font-size: 15px;
+  transition: color 0.3s ease;
 }
 
 .footer-col ul {
-    list-style: none;
+  list-style: none;
 }
 
 .footer-col ul li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .footer-col ul li a {
-    color: #a0a0a0;
-    text-decoration: none;
-    transition: color 0.2s;
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .footer-col ul li a:hover {
-    color: var(--white);
+  color: var(--text-header);
 }
 
 .social-icons i {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .footer-bottom {
-    max-width: 1600px;
-    margin: 20px auto 0 auto;
-    display: flex;
-    justify-content: space-between;
-    font-size: 11px;
+  max-width: 1600px;
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
 }
 
 .footer-links a {
-    color: #a0a0a0;
-    text-decoration: none;
-    margin-left: 15px;
-}
-
-/* Responsividade do Grid do rodapé */
-@media (max-width: 900px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
+  color: #a0a0a0;
+  text-decoration: none;
+  margin-left: 15px;
 }
